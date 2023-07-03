@@ -1,0 +1,101 @@
+.navbar {
+	margin-bottom: 50px;
+	border-radius: 0;
+}
+
+.logo {
+	height: 80px;
+}
+
+.jumbotron {
+	margin-bottom: 0;
+}
+
+.database {
+	text-align: justify;
+	text-justify: inter-word;
+}
+
+footer {
+	background-color: #f2f2f2;
+	padding: 25px;
+}
+
+.expandable {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: normal;
+	cursor: pointer;
+}
+
+.expandable.expanded {
+	white-space: normal;
+	overflow: visible;
+}
+
+.hide {
+  display: none;
+}
+
+.myDIV:hover + .hide {
+  display: block;
+  }
+  
+  
+  
+td.content {
+  max-width: 200px;
+  width: 200px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+  width: 200px;
+  text-align: center !important;
+}
+
+td {
+  text-align: center;
+}
+
+button li{
+	padding: 22px !important;
+	margin: 22px !important;
+}
+
+.text-truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.text-truncate.expanded {
+  white-space: normal;
+}
+
+.expandable {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.expandable.expanded {
+  white-space: normal;
+  overflow: visible;
+}
