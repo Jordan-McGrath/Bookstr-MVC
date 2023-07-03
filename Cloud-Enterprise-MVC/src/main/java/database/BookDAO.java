@@ -17,26 +17,33 @@ import java.sql.Statement;
 
 
 public class BookDAO {
-    
 
-	Book oneBook = null;
-	Connection conn = null;
-	Statement stmt = null;
-    private static String user = "mcgrathj";
-    private static String password = "crewsoiP6";
-    private static String url = "jdbc:mysql://mudfoot.doc.stu.mmu.ac.uk:6306/" + user;
+    private static String user;
+    private static String password;
+    private static String url;
 
-    
-	public BookDAO() {}
-/*
- * Open Mudfoot database connection
- */
-	private void openConnection() {
+    static {
+        Properties props = new Properties();
+        try {
+            props.load(new FileInputStream("config.properties"));
+            user = props.getProperty("username");
+            password = props.getProperty("password");
+            url = props.getProperty("url");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public BookDAO() {}
+
+    private void openConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
             System.out.println(e);
-        }try{
+        }
+
+        try {
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
         } catch (Exception e) {
@@ -44,9 +51,6 @@ public class BookDAO {
         }
     }
 
-	/*
-	 * Close connection to the database
-	 */
     private void closeConnection() {
         try {
             if (stmt != null) {
@@ -59,6 +63,7 @@ public class BookDAO {
             e.printStackTrace();
         }
     }
+
 	
 /*
  *  Creates a Book object using result set, returning the created book.
