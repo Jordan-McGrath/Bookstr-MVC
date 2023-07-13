@@ -31,14 +31,17 @@ Bookstr is built using the following technologies:
 To set up the Bookstr application locally, follow these steps:
 
 	•	Download the Bookstr .war file from the GitHub repository.
-	•	Navigate in your directory to Cloud-Enterprise-MVC/build/classes/database/config.properties.
-	•	In the config.properties file, you will find login details for a MySQL database. 
-	•	Change the details for your login and save;
-	  ⁃	username=YOUR_USERNAME
-	  ⁃	password=YOUR_PASSWORD
-	  ⁃	url=YOUR MySQL DATABASE URL
+	•	Navigate in your directory to Cloud-Enterprise-MVC/src/main/java/database/BookDAO.java
+	•	In the DAO file, you will find login details for a MySQL database at the top. 
+	•	Change the details for your MySQL login and save; Replace "YOUR_" for your actual details.
+ 
+ 			⁃	private static String user = "YOUR_USERNAME";
+    		⁃	private static String password = "YOUR_PASSWPRD";
+      		⁃	private static String url = "YOU_MYSQL_DATABASE_URL" + user;
+	
 	•	Run create_books_table.sql scheme attached in your workbench.
-	•	Deploy the .war file to your preferred Java Servlet Container (e.g., Apache Tomcat 9).
+	•	Run the project to your preferred Java Servlet Container (e.g., Apache Tomcat 9).
+
 
 
 ## License
