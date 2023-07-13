@@ -18,32 +18,30 @@ import java.sql.Statement;
 
 public class BookDAO {
 
-    private static String user;
-    private static String password;
-    private static String url;
+    Book oneBook = null;
+	Connection conn = null;
+	Statement stmt = null;
+	
+	/*
+	 * Please replace your MySQL login details here. 
+	 * Once you have added your login details, you can run the create book schema and add the books. 
+	 */
+	
+    private static String user = "YOUR_USERNAME";
+    private static String password = "YOUR_PASSWPRD";
+    private static String url = "YOU_MYSQL_DATABASE_URL" + user;
 
-    static {
-        Properties props = new Properties();
-        try {
-            props.load(new FileInputStream("config.properties"));
-            user = props.getProperty("username");
-            password = props.getProperty("password");
-            url = props.getProperty("url");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public BookDAO() {}
-
-    private void openConnection() {
+    
+	public BookDAO() {}
+/*
+ * Open Mudfoot database connection
+ */
+	private void openConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception e) {
             System.out.println(e);
-        }
-
-        try {
+        }try{
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
         } catch (Exception e) {
@@ -51,6 +49,9 @@ public class BookDAO {
         }
     }
 
+	/*
+	 * Close connection to the database
+	 */
     private void closeConnection() {
         try {
             if (stmt != null) {
